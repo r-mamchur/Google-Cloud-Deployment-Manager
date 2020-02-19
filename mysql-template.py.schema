@@ -1,0 +1,57 @@
+info:
+  title: MySQL
+  author: r_mamchur@ukr.net
+  description: |
+    Creates a CloudSQL deployment
+  version: 0.1
+
+properties:
+  failover:
+    type: boolean
+    description: enable failover replica
+    default: true
+
+  cloudsql:
+    type: object
+    default:
+      properties: 
+    properties:
+      databaseVersion:
+        type: string
+        description: MYSQL_5_7 or MYSQL_5_6
+        default: MYSQL_5_7
+      tier:
+        type: string
+        description: https://cloud.google.com/sql/pricing#2nd-gen-pricing
+        default: db-f1-micro
+      region:
+        type: string
+        description: i.e. us-central1
+        default: us-central1
+      zone:
+        type: string
+        description: i.e. us-central1-a
+        default: us-central1-a
+      dataDiskSizeGb:
+        type: integer
+        default: 10
+      dataDiskType:
+        type: string
+        decription: PD_SSD or PD_HDD
+        default: PD_SSD
+
+  wp: 
+    type: object
+    default:
+      properties: 
+    properties:
+      wp-db: 
+        type: string
+        default: wp
+      wp-user-name: 
+        type: string
+        default: wp-user
+      wp-user-password:
+        type: string
+        default: 'Passw0rd('
+

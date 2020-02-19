@@ -1,0 +1,22 @@
+
+imports:
+- path: vm-template.py
+- path: network-template.py
+- path: firewall-template.py
+- path: wp-top.py
+- path: cloud-wp.sh
+- path: mysql-template.py
+
+
+resources:
+- name: wp
+  type: wp-top.py
+
+outputs:
+- name: 'frontend-IP'
+  value: $(ref.wp.VM-IP) 
+- name: 'mysql-connectionName'
+  value: $(ref.wp.mysql-connectionName) 
+- name: 'mysql-IP'
+  value: $(ref.wp.mysql-IP) 
+
